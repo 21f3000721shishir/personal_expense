@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 from collections import defaultdict
 
 # API Base URL
-API_BASE_URL = "personalexpense-production.up.railway.app"
+API_BASE_URL = "https://personalexpense-production.up.railway.app"
 
 # Page config
 st.set_page_config(
