@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import db_helper
+import os
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for Streamlit frontend
@@ -138,11 +139,15 @@ def delete_expense(expense_id):
 
 
 if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
     print("🚀 Starting Flask API server...")
-    print("📍 API running at: http://127.0.0.1:5000")
+
     print("📝 Endpoints:")
     print("   - POST   /expenses")
     print("   - GET    /expenses")
     print("   - GET    /health")
     print("   - GET    /categories")
-    app.run(debug=True, port=5000)
+    app.run(
+    host="0.0.0.0",
+    port=port
+       )
